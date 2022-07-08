@@ -1,13 +1,18 @@
+const errorBox = document.querySelector('.errorbox');
+
 async function hitApi(location) {
-  const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=e9996fd262ff46252f67fb277ba803ae&units=imperial`,
-    { mode: 'cors' }
-  );
+  try {
+    const response = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=e9996fd262ff46252f67fb277ba803ae&units=imperial`,
+      { mode: 'cors' }
+    );
 
-  const data = await response.json();
-
-  const processData = createWeatherObject(data);
-  render(processData);
+    const data = await response.json();
+    const processData = createWeatherObject(data);
+    render(processData);
+  } catch (err) {
+    errorBox.textContent = 'Enter A Valid City';
+  }
 }
 
 function createWeatherObject(data) {
@@ -53,14 +58,16 @@ function clearElement(element) {
   }
 }
 
-hitApi('london');
-hitApi('austin');
-
 const form = document.querySelector('.weather-form');
 const weatherInput = document.querySelector('.weather-input');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const inputValue = weatherInput.value;
-  if (inputValue === '' || inputValue == null) return;
-  hitApi(inputValue);
+  if(inputValue === '' || inputValue == null){
+    errorBox.textContent = "Enter A Valid City"
+  }else{
+    hitApi(inputValue);
+    weatherInput.value = null;
+  }
+  
 });

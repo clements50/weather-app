@@ -26,7 +26,7 @@ nav {
     background: navy;
     color: white;
     margin: 0 auto;
-    max-width: 20rem;
+    max-width: 18rem;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -42,3 +42,22 @@ nav {
     font-size: 2rem;
 }
 
+.errorbox {
+    font-size: 1.5rem;
+    color: white;
+}
+
+input {
+    height: 2rem;
+    width: 10rem;
+    border-radius: 3px;
+}
+
+button {
+    height: 2rem;
+    padding: 10px;
+    color: white;
+    background: green;
+    border: none;
+    border-radius: 3px;
+}
