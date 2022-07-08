@@ -3,7 +3,7 @@ const errorBox = document.querySelector('.errorbox');
 async function hitApi(location) {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=e9996fd262ff46252f67fb277ba803ae&units=imperial`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=e9996fd262ff46252f67fb277ba803ae&units=imperial`,
       { mode: 'cors' }
     );
 
