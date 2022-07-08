@@ -63,10 +63,6 @@ const weatherInput = document.querySelector('.weather-input');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const inputValue = weatherInput.value;
-  if (inputValue === '' || inputValue == null) {
-    errorBox.textContent = 'Enter A Valid City';
-  } else {
-    hitApi(inputValue);
+    hitApi(weatherInput.value);
     weatherInput.value = null;
-  }
 });
