@@ -11,7 +11,7 @@ async function hitApi(location) {
     const processData = createWeatherObject(data);
     render(processData);
   } catch (err) {
-    errorBox.textContent = 'Enter A Valid City';
+    console.log(err);
   }
 }
 
@@ -63,11 +63,10 @@ const weatherInput = document.querySelector('.weather-input');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const inputValue = weatherInput.value;
-  if(inputValue === '' || inputValue == null){
-    errorBox.textContent = "Enter A Valid City"
-  }else{
+  if (inputValue === '' || inputValue == null) {
+    errorBox.textContent = 'Enter A Valid City';
+  } else {
     hitApi(inputValue);
     weatherInput.value = null;
   }
-  
 });
